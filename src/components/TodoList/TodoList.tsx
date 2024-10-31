@@ -24,9 +24,7 @@ const TodoList: React.FC = () => {
   const getTodos = async () => {
     try {
       setIsLoading(true);
-      console.log("Fetching todos from API...");
       const response = await axios.get<Todo[]>(`${BASE_URL}/${API_KEY}`);
-      console.log("Data fetched:", response.data);
       setTodos(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -69,7 +67,7 @@ const TodoList: React.FC = () => {
       await axios.post(`${BASE_URL}/${API_KEY}/progress/${id}`);
       getTodos();
     } catch (error) {
-      console.error("Cannot toggle todo", error);
+      console.error("Cannot togle todo", error);
     }
   };
 

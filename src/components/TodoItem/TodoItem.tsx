@@ -25,7 +25,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
         <p>Description: {todo.description}</p>
       </div>
       <button onClick={() => deleteTodo(todo._id)}>Delete</button>
-      console.log(todo.id);
+
       
     </li>
   );
