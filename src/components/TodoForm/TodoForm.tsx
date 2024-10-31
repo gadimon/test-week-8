@@ -2,22 +2,22 @@ import React, { useState } from "react";
 import "./TodoForm.css";
 
 interface TodoFormProps {
-  addTodo: (todo: { name: string; status: string; priority: string; description: string }) => Promise<void>;
+  addTodo: (todo: { title: string; status: string; priority: string; description: string }) => Promise<void>;
 }
 
 const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
-  const [name, setName] = useState<string>("");
+  const [title, setTitle] = useState<string>("");
   const [status, setStatus] = useState<string>("");
   const [priority, setPriority] = useState<string>("");
   const [description, setDescription] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    if (!name.trim() || !status || !priority || !description.trim()) {
+    if (!title.trim() || !status || !priority || !description.trim()) {
       return;
     }
-    addTodo({ name, status, priority, description });
-    setName("");
+    addTodo({ title, status, priority, description });
+    setTitle("");
     setStatus("");
     setPriority("");
     setDescription("");
@@ -27,9 +27,9 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
     <form className="todo-form" onSubmit={handleSubmit}>
       <input
         type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Name"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="Title"
       />
 
       <select value={status} onChange={(e) => setStatus(e.target.value)}>
