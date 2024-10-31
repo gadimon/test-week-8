@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import "./TodoForm.css";
 
 interface TodoFormProps {
-  addTodo: (todo: { title: string; status: string; priority: string; description: string }) => Promise<void>;
+  addTodo: (todo: { 
+    title: string;
+    status: string;
+    priority: string;
+    description: string }) => Promise<void>;
 }
 
 const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
@@ -13,7 +17,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    if (!title.trim() || !status || !priority || !description.trim()) {
+    if (!title || !status || !priority || !description) {
       return;
     }
     addTodo({ title, status, priority, description });

@@ -9,7 +9,7 @@ const BASE_URL = `https://reactexambackend.onrender.com/missions`;
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 export interface Todo {
-  id: string;
+  _id: string;
   title: string;
   completed: boolean;
   status: string;
@@ -83,7 +83,7 @@ const TodoList: React.FC = () => {
         <ul>
           {todos.map((todo) => (
             <TodoItem
-              key={todo.id}
+              key={todo._id}
               todo={todo}
               deleteTodo={deleteTodo}
               toggleCompletion={toggleCompletion}

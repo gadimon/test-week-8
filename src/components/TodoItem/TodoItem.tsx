@@ -16,7 +16,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
 
   return (
     <li className={`todo-item ${todo.completed ? "completed" : ""}`}>
-      <div className="todo-status-and-text" onClick={() => toggleCompletion(todo.id)}>
+      <div className="todo-status-and-text" onClick={() => toggleCompletion(todo._id)}>
         <span>{todo.completed ? "✔️" : "❌"}</span>
       </div>
       <div className="todo-details">
@@ -24,7 +24,9 @@ const TodoItem: React.FC<TodoItemProps> = ({
         <p>Priority: {todo.priority}</p>
         <p>Description: {todo.description}</p>
       </div>
-      <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+      <button onClick={() => deleteTodo(todo._id)}>Delete</button>
+      console.log(todo.id);
+      
     </li>
   );
 };
